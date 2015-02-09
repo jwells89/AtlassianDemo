@@ -122,8 +122,6 @@
                                                        options:NSJSONWritingPrettyPrinted
                                                          error:&error];
     
-    NSLog(@"%@", error);
-    
     self.jsonString = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
 }
 
