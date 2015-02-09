@@ -787,6 +787,9 @@ DQ
                     <constraint firstAttribute="bottom" secondItem="wZC-2E-SvJ" secondAttribute="bottom" constant="6" id="yb8-8L-vIM"/>
                 </constraints>
             </view>
+            <connections>
+                <outlet property="initialFirstResponder" destination="UHF-jZ-Yo7" id="zcZ-h1-7d1"/>
+            </connections>
             <point key="canvasLocation" x="384" y="379"/>
         </window>
     </objects>
