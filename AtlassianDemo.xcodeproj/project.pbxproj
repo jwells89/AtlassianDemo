@@ -7,11 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5253905A1A886D51007292FE /* ATLStatusHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 525390591A886D51007292FE /* ATLStatusHUD.m */; };
 		52C38A401A82D33900557E29 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C38A3F1A82D33900557E29 /* AppDelegate.m */; };
 		52C38A421A82D33900557E29 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C38A411A82D33900557E29 /* main.m */; };
 		52C38A441A82D33900557E29 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 52C38A431A82D33900557E29 /* Images.xcassets */; };
 		52C38A471A82D33900557E29 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 52C38A451A82D33900557E29 /* MainMenu.xib */; };
 		52C38A531A82D33900557E29 /* AtlassianDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C38A521A82D33900557E29 /* AtlassianDemoTests.m */; };
+		52C38A5E1A82DE2600557E29 /* ATLStringsController.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C38A5D1A82DE2600557E29 /* ATLStringsController.m */; };
+		52C38A681A83F25500557E29 /* JSONGeneratorOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 52C38A671A83F25500557E29 /* JSONGeneratorOperation.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +28,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		525390581A886D51007292FE /* ATLStatusHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLStatusHUD.h; sourceTree = "<group>"; };
+		525390591A886D51007292FE /* ATLStatusHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLStatusHUD.m; sourceTree = "<group>"; };
 		52C38A391A82D33900557E29 /* AtlassianDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AtlassianDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C38A3D1A82D33900557E29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52C38A3E1A82D33900557E29 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -35,6 +40,10 @@
 		52C38A4C1A82D33900557E29 /* AtlassianDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AtlassianDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		52C38A511A82D33900557E29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		52C38A521A82D33900557E29 /* AtlassianDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AtlassianDemoTests.m; sourceTree = "<group>"; };
+		52C38A5C1A82DE2600557E29 /* ATLStringsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATLStringsController.h; sourceTree = "<group>"; };
+		52C38A5D1A82DE2600557E29 /* ATLStringsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ATLStringsController.m; sourceTree = "<group>"; };
+		52C38A661A83F25500557E29 /* JSONGeneratorOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSONGeneratorOperation.h; sourceTree = "<group>"; };
+		52C38A671A83F25500557E29 /* JSONGeneratorOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSONGeneratorOperation.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +87,12 @@
 			children = (
 				52C38A3E1A82D33900557E29 /* AppDelegate.h */,
 				52C38A3F1A82D33900557E29 /* AppDelegate.m */,
+				52C38A5C1A82DE2600557E29 /* ATLStringsController.h */,
+				52C38A5D1A82DE2600557E29 /* ATLStringsController.m */,
+				52C38A661A83F25500557E29 /* JSONGeneratorOperation.h */,
+				52C38A671A83F25500557E29 /* JSONGeneratorOperation.m */,
+				525390581A886D51007292FE /* ATLStatusHUD.h */,
+				525390591A886D51007292FE /* ATLStatusHUD.m */,
 				52C38A431A82D33900557E29 /* Images.xcassets */,
 				52C38A451A82D33900557E29 /* MainMenu.xib */,
 				52C38A3C1A82D33900557E29 /* Supporting Files */,
@@ -210,6 +225,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5253905A1A886D51007292FE /* ATLStatusHUD.m in Sources */,
+				52C38A5E1A82DE2600557E29 /* ATLStringsController.m in Sources */,
+				52C38A681A83F25500557E29 /* JSONGeneratorOperation.m in Sources */,
 				52C38A421A82D33900557E29 /* main.m in Sources */,
 				52C38A401A82D33900557E29 /* AppDelegate.m in Sources */,
 			);
@@ -398,6 +416,7 @@
 				52C38A581A82D33900557E29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		52C38A591A82D33900557E29 /* Build configuration list for PBXNativeTarget "AtlassianDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -406,6 +425,7 @@
 				52C38A5B1A82D33900557E29 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6233" systemVersion="14A329f" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="6254" systemVersion="14C109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6233"/>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="6254"/>
     </dependencies>
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="NSApplication">
@@ -11,12 +12,18 @@
         </customObject>
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
-        <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModuleProvider="">
+        <customObject id="Voe-Tx-rLC" customClass="AppDelegate">
             <connections>
+                <outlet property="jsonTextView" destination="UgH-rL-Pec" id="V3O-Ex-UFJ"/>
+                <outlet property="messageField" destination="UHF-jZ-Yo7" id="wpx-3f-Z22"/>
+                <outlet property="stringsPopup" destination="fkF-gy-HR1" id="Up8-pF-aD2"/>
+                <outlet property="titleFetchSpinner" destination="7DR-mj-hyZ" id="Mj0-ul-dTo"/>
+                <outlet property="titleFetchView" destination="Ekf-O4-hNa" id="28W-F7-rks"/>
                 <outlet property="window" destination="QvC-M9-y7g" id="gIp-Ho-8D9"/>
             </connections>
         </customObject>
         <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+        <customObject id="ZjA-RI-Ihc" customClass="ATLStringsController"/>
         <menu title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
             <items>
                 <menuItem title="AtlassianDemo" id="1Xt-HY-uBw">
@@ -669,12 +676,118 @@
         <window title="AtlassianDemo" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="QvC-M9-y7g">
             <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
             <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
-            <rect key="contentRect" x="335" y="390" width="480" height="360"/>
-            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1177"/>
+            <rect key="contentRect" x="335" y="390" width="454" height="360"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1440" height="877"/>
+            <value key="minSize" type="size" width="454" height="360"/>
             <view key="contentView" id="EiT-Mj-1SZ">
-                <rect key="frame" x="0.0" y="0.0" width="480" height="360"/>
+                <rect key="frame" x="0.0" y="0.0" width="454" height="360"/>
                 <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <scrollView horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Eed-Tr-D2K">
+                        <rect key="frame" x="-1" y="34" width="456" height="294"/>
+                        <clipView key="contentView" id="Fm7-Dg-59a">
+                            <rect key="frame" x="1" y="1" width="223" height="133"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <textView editable="NO" importsGraphics="NO" richText="NO" findStyle="panel" verticallyResizable="YES" allowsNonContiguousLayout="YES" spellingCorrection="YES" smartInsertDelete="YES" id="UgH-rL-Pec">
+                                    <rect key="frame" x="0.0" y="0.0" width="223" height="325"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <size key="minSize" width="454" height="292"/>
+                                    <size key="maxSize" width="542" height="10000000"/>
+                                    <attributedString key="textStorage">
+                                        <fragment content="Type a message below and hit enter or click &quot;Create JSON&quot;">
+                                            <attributes>
+                                                <font key="NSFont" size="10" name="Menlo-Regular"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural"/>
+                                            </attributes>
+                                        </fragment>
+                                    </attributedString>
+                                    <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    <size key="minSize" width="454" height="292"/>
+                                    <size key="maxSize" width="542" height="10000000"/>
+                                </textView>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        </clipView>
+                        <scroller key="horizontalScroller" hidden="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="YES" id="YQu-kT-mEQ">
+                            <rect key="frame" x="-100" y="-100" width="87" height="18"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                        <scroller key="verticalScroller" verticalHuggingPriority="750" horizontal="NO" id="VJM-bY-AZ9">
+                            <rect key="frame" x="224" y="1" width="15" height="133"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                        </scroller>
+                    </scrollView>
+                    <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="UHF-jZ-Yo7">
+                        <rect key="frame" x="7" y="6" width="329" height="22"/>
+                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" drawsBackground="YES" id="VvK-1t-HGd">
+                            <font key="font" metaFont="system"/>
+                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                        </textFieldCell>
+                    </textField>
+                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="wZC-2E-SvJ">
+                        <rect key="frame" x="344" y="4" width="104" height="25"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="104" id="hlB-Wx-6Ex"/>
+                        </constraints>
+                        <buttonCell key="cell" type="roundTextured" title="Create JSON" bezelStyle="texturedRounded" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="dix-YY-ez8">
+                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="system"/>
+                            <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                        </buttonCell>
+                        <connections>
+                            <action selector="createJSONFromField:" target="Voe-Tx-rLC" id="hI6-u8-TLX"/>
+                        </connections>
+                    </button>
+                    <customView ambiguous="YES" misplaced="YES" alphaValue="0.0" translatesAutoresizingMaskIntoConstraints="NO" id="Ekf-O4-hNa" customClass="ATLStatusHUD">
+                        <rect key="frame" x="146" y="132" width="163" height="97"/>
+                        <subviews>
+                            <progressIndicator horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" maxValue="100" bezeled="NO" indeterminate="YES" style="spinning" translatesAutoresizingMaskIntoConstraints="NO" id="7DR-mj-hyZ">
+                                <rect key="frame" x="64" y="45" width="32" height="32"/>
+                            </progressIndicator>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="miD-ES-zhR">
+                                <rect key="frame" x="12" y="20" width="138" height="17"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="Fetching page title..." id="c46-BW-R7q">
+                                    <font key="font" metaFont="system"/>
+                                    <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                        </subviews>
+                    </customView>
+                    <popUpButton verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fkF-gy-HR1">
+                        <rect key="frame" x="178" y="331" width="100" height="26"/>
+                        <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="oeb-B9-h0j">
+                            <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
+                            <font key="font" metaFont="menu"/>
+                            <menu key="menu" id="4c5-nF-b0j"/>
+                        </popUpButtonCell>
+                    </popUpButton>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="Eed-Tr-D2K" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="-1" id="5CK-Yy-d5N"/>
+                    <constraint firstItem="fkF-gy-HR1" firstAttribute="top" secondItem="EiT-Mj-1SZ" secondAttribute="top" constant="5" id="6Hb-ZM-Nrk"/>
+                    <constraint firstAttribute="centerY" secondItem="Ekf-O4-hNa" secondAttribute="centerY" id="73W-3h-2ZJ"/>
+                    <constraint firstAttribute="trailing" secondItem="wZC-2E-SvJ" secondAttribute="trailing" constant="6" id="7Xf-2w-3dx"/>
+                    <constraint firstAttribute="bottom" secondItem="UHF-jZ-Yo7" secondAttribute="bottom" constant="6" id="IPl-9F-dLP"/>
+                    <constraint firstAttribute="trailing" secondItem="Eed-Tr-D2K" secondAttribute="trailing" constant="-1" id="Ki3-Au-czE"/>
+                    <constraint firstItem="wZC-2E-SvJ" firstAttribute="leading" secondItem="UHF-jZ-Yo7" secondAttribute="trailing" constant="8" id="QXo-de-q4d"/>
+                    <constraint firstItem="Eed-Tr-D2K" firstAttribute="top" secondItem="fkF-gy-HR1" secondAttribute="bottom" constant="6" id="RgL-M1-ugT"/>
+                    <constraint firstItem="wZC-2E-SvJ" firstAttribute="leading" secondItem="UHF-jZ-Yo7" secondAttribute="trailing" constant="8" id="cew-qA-NsJ"/>
+                    <constraint firstItem="UHF-jZ-Yo7" firstAttribute="top" secondItem="Eed-Tr-D2K" secondAttribute="bottom" constant="6" id="czM-gH-stN"/>
+                    <constraint firstItem="wZC-2E-SvJ" firstAttribute="top" secondItem="Eed-Tr-D2K" secondAttribute="bottom" constant="6" id="hVR-bJ-pHh"/>
+                    <constraint firstItem="UHF-jZ-Yo7" firstAttribute="leading" secondItem="EiT-Mj-1SZ" secondAttribute="leading" constant="7" id="lsH-cr-422"/>
+                    <constraint firstAttribute="centerX" secondItem="Ekf-O4-hNa" secondAttribute="centerX" id="p5P-C4-Azt"/>
+                    <constraint firstItem="wZC-2E-SvJ" firstAttribute="top" secondItem="Eed-Tr-D2K" secondAttribute="bottom" constant="6" id="q2Q-dA-Xz2"/>
+                    <constraint firstAttribute="centerX" secondItem="fkF-gy-HR1" secondAttribute="centerX" id="xPL-zQ-Tzs"/>
+                    <constraint firstAttribute="bottom" secondItem="wZC-2E-SvJ" secondAttribute="bottom" constant="6" id="yb8-8L-vIM"/>
+                </constraints>
             </view>
+            <point key="canvasLocation" x="384" y="379"/>
         </window>
     </objects>
 </document>
