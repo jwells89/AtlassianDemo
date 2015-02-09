@@ -32,7 +32,7 @@
     
     __weak JSONGeneratorOperation *weakSelf = self;
     
-    dispatch_async(dispatch_get_main_queue(), ^{
+    dispatch_sync(dispatch_get_main_queue(), ^{
         [weakSelf.delegate generatorDidFinishCreatingJSONString:weakSelf.jsonString];
     });
 }
@@ -75,12 +75,15 @@
     for (NSMutableDictionary *d in self.links) {
         NSError *error = nil;
         NSURL *URL = [NSURL URLWithString:d[@"url"]];
-        NSString *htmlString = [NSString stringWithContentsOfURL:URL
-                                                        encoding:NSUTF8StringEncoding
-                                                           error:&error];
+        NSURLRequest *siteRequest = [[NSURLRequest alloc] initWithURL:URL cachePolicy:0 timeoutInterval:2.0];
+        NSURLResponse *response = nil;
+        NSData *siteData = [NSURLConnection sendSynchronousRequest:siteRequest
+                                                 returningResponse:&response
+                                                             error:&error];
+        NSString *htmlString = [[NSString alloc] initWithData:siteData encoding:NSUTF8StringEncoding];
         
         if (!htmlString || error) {
-            d[@"title"] = [NSString stringWithFormat:@"%@", d[@"url"]];
+            d[@"title"] = d[@"url"];
             continue;
         }
         
@@ -94,7 +97,7 @@
             [titleScanner scanUpToString:@"</title>" intoString:&title];
         }
         
-        d[@"title"] = title;
+        d[@"title"] = title ? title : d[@"url"];
     }
 }
 
@@ -102,13 +105,24 @@
 {
     NSMutableDictionary *content = [NSMutableDictionary dictionary];
     
-    [content setObject:self.mentions forKey:@"mentions"];
-    [content setObject:self.emoticons forKey:@"emoticons"];
-    [content setObject:self.links forKey:@"links"];
+    if (self.mentions) {
+        [content setObject:self.mentions forKey:@"mentions"];
+    }
+    
+    if (self.emoticons) {
+        [content setObject:self.emoticons forKey:@"emoticons"];
+    }
+    
+    if (self.links) {
+        [content setObject:self.links forKey:@"links"];
+    }
 
+    NSError *error = nil;
     NSData *JSONData = [NSJSONSerialization dataWithJSONObject:content
                                                        options:NSJSONWritingPrettyPrinted
-                                                         error:NULL];
+                                                         error:&error];
+    
+    NSLog(@"%@", error);
     
     self.jsonString = [[NSString alloc] initWithData:JSONData encoding:NSUTF8StringEncoding];
 }
